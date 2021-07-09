@@ -26,7 +26,7 @@ class Role extends AppModel
      */
     public function get_menu($auth){
         //执行原生sql
-        $sql = "SELECT `id`, `auth_name`, `is_menu`, `pid`, `path` FROM `auth` WHERE `id` in (".$auth.")";
+        $sql = "SELECT `id`, `auth_name`, `is_menu`, `pid`, `path` FROM `auth` WHERE `id` in (".$auth.") and is_menu =1";
         $data = $this->query($sql);
          foreach ($data as $v){
              $res[] = $v['auth'];

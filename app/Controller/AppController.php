@@ -70,10 +70,12 @@ class AppController extends Controller
         $menu = $this->Role->get_menu($auth);
         //这里因为菜单有顶级菜单和次级菜单，故这里可以做处理，这样可以返回父子级树状结构
         $menu1 =  $this->get_tree_list($menu);
-
         $this->set('menu', $menu1);
     }
 
+    /*
+     * 权限检测防止越权操作
+     */
 
     public function get_tree_list($list){
         //将每条数据中的id值作为其下标
