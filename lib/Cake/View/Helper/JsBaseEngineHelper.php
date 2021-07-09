@@ -19,7 +19,7 @@ App::uses('AppHelper', 'View/Helper');
 /**
  * JsEngineBaseClass
  *
- * Abstract Base Class for All JsEngines to extend. Provides generic methods.
+ * Abstract BaseController Class for All JsEngines to extend. Provides generic methods.
  *
  * @package       Cake.View.Helper
  */

@@ -82,7 +82,7 @@ class ConfigureTest extends CakeTestCase {
 		$result = Configure::read('App');
 
 		$this->assertEquals($expected['foo'], $result['foo']);
-		$this->assertFalse($result['base']);
+		$this->assertFalse($result['BaseController']);
 	}
 
 /**

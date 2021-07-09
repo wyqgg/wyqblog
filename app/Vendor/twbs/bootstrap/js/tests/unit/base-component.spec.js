@@ -15,7 +15,7 @@ class DummyClass extends BaseComponent {
   }
 }
 
-describe('Base Component', () => {
+describe('BaseController Component', () => {
   let fixtureEl
   const name = 'dummy'
   let element

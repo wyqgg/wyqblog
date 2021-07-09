@@ -35,7 +35,7 @@ class Mysql extends DboSource {
 	public $description = "MySQL DBO Driver";
 
 /**
- * Base configuration settings for MySQL driver
+ * BaseController configuration settings for MySQL driver
  *
  * @var array
  */

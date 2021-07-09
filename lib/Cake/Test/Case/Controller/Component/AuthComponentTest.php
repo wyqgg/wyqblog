@@ -965,7 +965,7 @@ class AuthComponentTest extends CakeTestCase {
 		Configure::write('App', array(
 			'dir' => APP_DIR,
 			'webroot' => WEBROOT_DIR,
-			'base' => false,
+			'BaseController' => false,
 			'baseUrl' => '/cake/index.php'
 		));
 
@@ -1347,7 +1347,7 @@ class AuthComponentTest extends CakeTestCase {
 				'admin' => true,
 			),
 			array(
-				'base' => null, 'here' => $url,
+				'BaseController' => null, 'here' => $url,
 				'webroot' => '/', 'passedArgs' => array(),
 			)
 		));
@@ -1648,7 +1648,7 @@ class AuthComponentTest extends CakeTestCase {
 		Configure::write('App', array(
 			'dir' => APP_DIR,
 			'webroot' => WEBROOT_DIR,
-			'base' => false,
+			'BaseController' => false,
 			'baseUrl' => '/cake/index.php'
 		));
 

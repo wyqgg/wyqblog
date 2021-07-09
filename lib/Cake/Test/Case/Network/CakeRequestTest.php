@@ -251,7 +251,7 @@ class CakeRequestTest extends CakeTestCase {
 		$request = new CakeRequest('some/path');
 		$request->webroot = '/some/path/going/here/';
 		$result = $request->addPaths(array(
-			'random' => '/something', 'webroot' => '/', 'here' => '/', 'base' => '/base_dir'
+			'random' => '/something', 'webroot' => '/', 'here' => '/', 'BaseController' => '/base_dir'
 		));
 
 		$this->assertSame($result, $request, 'Method did not return itself. %s');
@@ -1491,7 +1491,7 @@ class CakeRequestTest extends CakeTestCase {
 		Configure::write('App', array(
 			'dir' => APP_DIR,
 			'webroot' => WEBROOT_DIR,
-			'base' => false,
+			'BaseController' => false,
 			'baseUrl' => '/cake/index.php'
 		));
 
@@ -1661,7 +1661,7 @@ class CakeRequestTest extends CakeTestCase {
 				'IIS - No rewrite base path',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1681,7 +1681,7 @@ class CakeRequestTest extends CakeTestCase {
 					),
 				),
 				array(
-					'base' => '/index.php',
+					'BaseController' => '/index.php',
 					'webroot' => '/app/webroot/',
 					'url' => ''
 				),
@@ -1690,7 +1690,7 @@ class CakeRequestTest extends CakeTestCase {
 				'IIS - No rewrite with path, no PHP_SELF',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/index.php?',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1707,7 +1707,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/add',
-					'base' => '/index.php?',
+					'BaseController' => '/index.php?',
 					'webroot' => '/app/webroot/'
 				)
 			),
@@ -1715,7 +1715,7 @@ class CakeRequestTest extends CakeTestCase {
 				'IIS - No rewrite sub dir 2',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/site/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot',
@@ -1735,7 +1735,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => '',
-					'base' => '/site/index.php',
+					'BaseController' => '/site/index.php',
 					'webroot' => '/site/app/webroot/'
 				),
 			),
@@ -1743,7 +1743,7 @@ class CakeRequestTest extends CakeTestCase {
 				'IIS - No rewrite sub dir 2 with path',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/site/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1764,7 +1764,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/add',
-					'base' => '/site/index.php',
+					'BaseController' => '/site/index.php',
 					'webroot' => '/site/app/webroot/'
 				)
 			),
@@ -1772,7 +1772,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - No rewrite, document root set to webroot, requesting path',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1789,7 +1789,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/index',
-					'base' => '/index.php',
+					'BaseController' => '/index.php',
 					'webroot' => '/'
 				),
 			),
@@ -1797,7 +1797,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - No rewrite, document root set to webroot, requesting root',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1814,7 +1814,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => '',
-					'base' => '/index.php',
+					'BaseController' => '/index.php',
 					'webroot' => '/'
 				),
 			),
@@ -1822,7 +1822,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - No rewrite, document root set above top level cake dir, requesting path',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/site/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1839,7 +1839,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/index',
-					'base' => '/site/index.php',
+					'BaseController' => '/site/index.php',
 					'webroot' => '/site/app/webroot/',
 				),
 			),
@@ -1847,7 +1847,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - No rewrite, document root set above top level cake dir, request root, no PATH_INFO',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/site/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1863,7 +1863,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => '',
-					'base' => '/site/index.php',
+					'BaseController' => '/site/index.php',
 					'webroot' => '/site/app/webroot/',
 				),
 			),
@@ -1871,7 +1871,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - No rewrite, document root set above top level cake dir, request path, with GET',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => '/site/index.php',
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1891,7 +1891,7 @@ class CakeRequestTest extends CakeTestCase {
 				array(
 					'urlParams' => array('a' => 'b', 'c' => 'd'),
 					'url' => 'posts/index',
-					'base' => '/site/index.php',
+					'BaseController' => '/site/index.php',
 					'webroot' => '/site/app/webroot/',
 				),
 			),
@@ -1899,7 +1899,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - w/rewrite, document root set above top level cake dir, request root, no PATH_INFO',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => false,
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1915,7 +1915,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => '',
-					'base' => '/site',
+					'BaseController' => '/site',
 					'webroot' => '/site/',
 				),
 			),
@@ -1923,7 +1923,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - w/rewrite, document root above top level cake dir, request root, no PATH_INFO/REQUEST_URI',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => false,
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1940,7 +1940,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => '',
-					'base' => '/site',
+					'BaseController' => '/site',
 					'webroot' => '/site/',
 				),
 			),
@@ -1948,7 +1948,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - w/rewrite, document root set to webroot, request root, no PATH_INFO/REQUEST_URI',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => false,
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1965,7 +1965,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => '',
-					'base' => '',
+					'BaseController' => '',
 					'webroot' => '/',
 				),
 			),
@@ -1973,7 +1973,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Apache - w/rewrite, document root set above top level cake dir, request root, absolute REQUEST_URI',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => false,
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -1989,7 +1989,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/index',
-					'base' => '/site',
+					'BaseController' => '/site',
 					'webroot' => '/site/',
 				),
 			),
@@ -1997,7 +1997,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Nginx - w/rewrite, document root set to webroot, request root, no PATH_INFO',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => false,
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -2016,7 +2016,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/add',
-					'base' => '',
+					'BaseController' => '',
 					'webroot' => '/',
 					'urlParams' => array()
 				),
@@ -2025,7 +2025,7 @@ class CakeRequestTest extends CakeTestCase {
 				'Nginx - w/rewrite, document root set above top level cake dir, request root, no PATH_INFO, base parameter set',
 				array(
 					'App' => array(
-						'base' => false,
+						'BaseController' => false,
 						'baseUrl' => false,
 						'dir' => 'app',
 						'webroot' => 'webroot'
@@ -2044,7 +2044,7 @@ class CakeRequestTest extends CakeTestCase {
 				),
 				array(
 					'url' => 'posts/add',
-					'base' => '/site',
+					'BaseController' => '/site',
 					'webroot' => '/site/',
 					'urlParams' => array()
 				),
@@ -2067,7 +2067,7 @@ class CakeRequestTest extends CakeTestCase {
 
 		$request = new CakeRequest();
 		$this->assertEquals($expected['url'], $request->url, "url error");
-		$this->assertEquals($expected['base'], $request->base, "base error");
+		$this->assertEquals($expected['BaseController'], $request->base, "base error");
 		$this->assertEquals($expected['webroot'], $request->webroot, "webroot error");
 		if (isset($expected['urlParams'])) {
 			$this->assertEquals($expected['urlParams'], $request->query, "GET param mismatch");

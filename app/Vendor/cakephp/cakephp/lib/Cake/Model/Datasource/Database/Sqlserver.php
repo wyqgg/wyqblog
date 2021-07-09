@@ -67,7 +67,7 @@ class Sqlserver extends DboSource {
 	protected $_lastAffected = false;
 
 /**
- * Base configuration settings for MS SQL driver
+ * BaseController configuration settings for MS SQL driver
  *
  * @var array
  */

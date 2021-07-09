@@ -50,7 +50,7 @@ class Sqlite extends DboSource {
 	public $endQuote = '"';
 
 /**
- * Base configuration settings for SQLite3 driver
+ * BaseController configuration settings for SQLite3 driver
  *
  * @var array
  */

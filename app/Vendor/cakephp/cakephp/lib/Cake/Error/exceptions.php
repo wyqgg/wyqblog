@@ -18,7 +18,7 @@
  */
 
 /**
- * Base class that all Exceptions extend.
+ * BaseController class that all Exceptions extend.
  *
  * @package       Cake.Error
  */

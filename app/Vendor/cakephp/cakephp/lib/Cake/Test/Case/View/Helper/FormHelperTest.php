@@ -9446,7 +9446,7 @@ class FormHelperTest extends CakeTestCase {
  * @return void
  */
 	public function testCreateAutoUrl() {
-		Router::setRequestInfo(array(array(), array('base' => '/base_url')));
+		Router::setRequestInfo(array(array(), array('BaseController' => '/base_url')));
 		$this->Form->request->here = '/base_url/contacts/add/Contact:1';
 		$this->Form->request->base = '/base_url';
 		$result = $this->Form->create('Contact');

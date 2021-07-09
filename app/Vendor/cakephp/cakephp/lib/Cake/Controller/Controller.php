@@ -54,7 +54,7 @@ App::uses('CakeEventManager', 'Event');
  * @property      SecurityComponent $Security
  * @property      SessionComponent $Session
  * @property      string $action  The action handling the current request. Deprecated, use CakeRequest::$action instead.
- * @property      string $base    Base URL path. Deprecated, use CakeRequest::$base instead.
+ * @property      string $base    BaseController URL path. Deprecated, use CakeRequest::$base instead.
  * @property      array $data     POST data. Deprecated, use CakeRequest::$data instead.
  * @property      string $here    The full address to the current request. Deprecated, use CakeRequest::$here instead.
  * @property      array $paginate Pagination settings.
@@ -360,7 +360,7 @@ class Controller extends CakeObject implements CakeEventListener {
  */
 	public function __isset($name) {
 		switch ($name) {
-			case 'base':
+			case 'BaseController':
 			case 'here':
 			case 'webroot':
 			case 'data':
@@ -398,7 +398,7 @@ class Controller extends CakeObject implements CakeEventListener {
  */
 	public function __get($name) {
 		switch ($name) {
-			case 'base':
+			case 'BaseController':
 			case 'here':
 			case 'webroot':
 			case 'data':
@@ -427,7 +427,7 @@ class Controller extends CakeObject implements CakeEventListener {
  */
 	public function __set($name, $value) {
 		switch ($name) {
-			case 'base':
+			case 'BaseController':
 			case 'here':
 			case 'webroot':
 			case 'data':

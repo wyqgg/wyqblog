@@ -17,7 +17,7 @@ App::uses('Hash', 'Utility');
 App::uses('CakeEventListener', 'Event');
 
 /**
- * Base Authentication class with common methods and properties.
+ * BaseController Authentication class with common methods and properties.
  *
  * @package       Cake.Controller.Component.Auth
  */

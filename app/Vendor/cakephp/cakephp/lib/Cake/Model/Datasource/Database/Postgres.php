@@ -31,7 +31,7 @@ class Postgres extends DboSource {
 	public $description = "PostgreSQL DBO Driver";
 
 /**
- * Base driver configuration settings. Merged with user settings.
+ * BaseController driver configuration settings. Merged with user settings.
  *
  * @var array
  */

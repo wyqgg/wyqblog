@@ -247,7 +247,7 @@ class Helper extends CakeObject {
 			return $this->{$name};
 		}
 		switch ($name) {
-			case 'base':
+			case 'BaseController':
 			case 'here':
 			case 'webroot':
 			case 'data':
@@ -269,7 +269,7 @@ class Helper extends CakeObject {
  */
 	public function __set($name, $value) {
 		switch ($name) {
-			case 'base':
+			case 'BaseController':
 			case 'here':
 			case 'webroot':
 			case 'data':

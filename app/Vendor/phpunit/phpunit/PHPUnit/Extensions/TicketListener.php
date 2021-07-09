@@ -46,7 +46,7 @@
  */
 
 /**
- * Base class for test listeners that interact with an issue tracker.
+ * BaseController class for test listeners that interact with an issue tracker.
  *
  * @package    PHPUnit
  * @subpackage Extensions_TicketListener

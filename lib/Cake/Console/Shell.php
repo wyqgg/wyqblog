@@ -1,6 +1,6 @@
 <?php
 /**
- * Base class for Shells
+ * BaseController class for Shells
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -24,7 +24,7 @@ App::uses('ClassRegistry', 'Utility');
 App::uses('File', 'Utility');
 
 /**
- * Base class for command-line utilities for automating programmer chores.
+ * BaseController class for command-line utilities for automating programmer chores.
  *
  * @package       Cake.Console
  */

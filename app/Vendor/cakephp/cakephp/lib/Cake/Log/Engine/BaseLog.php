@@ -1,6 +1,6 @@
 <?php
 /**
- * Base Log Engine class
+ * BaseController Log Engine class
  *
  * CakePHP(tm) :  Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -19,7 +19,7 @@
 App::uses('CakeLogInterface', 'Log');
 
 /**
- * Base log engine class.
+ * BaseController log engine class.
  *
  * @package       Cake.Log.Engine
  */

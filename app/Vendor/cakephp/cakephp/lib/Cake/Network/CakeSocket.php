@@ -35,7 +35,7 @@ class CakeSocket {
 	public $description = 'Remote DataSource Network Socket Interface';
 
 /**
- * Base configuration settings for the socket connection
+ * BaseController configuration settings for the socket connection
  *
  * @var array
  */

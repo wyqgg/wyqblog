@@ -670,7 +670,7 @@ class HelperTest extends CakeTestCase {
  */
 	public function testAssetUrlNoRewrite() {
 		$this->Helper->request->addPaths(array(
-			'base' => '/cake_dev/index.php',
+			'BaseController' => '/cake_dev/index.php',
 			'webroot' => '/cake_dev/app/webroot/',
 			'here' => '/cake_dev/index.php/tasks',
 		));

@@ -16,7 +16,7 @@
 App::uses('AppShell', 'Console/Command');
 
 /**
- * Base class for Shell Command reflection.
+ * BaseController class for Shell Command reflection.
  *
  * @package       Cake.Console.Command.Task
  */

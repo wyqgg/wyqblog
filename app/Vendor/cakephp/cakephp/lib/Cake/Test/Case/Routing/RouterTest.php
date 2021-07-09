@@ -831,7 +831,7 @@ class RouterTest extends CakeTestCase {
 				'prefix' => 'admin', 'admin' => true,
 				'url' => array('url' => 'admin/pages/edit/284')
 			))->addPaths(array(
-				'base' => '', 'here' => '/admin/pages/edit/284', 'webroot' => '/'
+				'BaseController' => '', 'here' => '/admin/pages/edit/284', 'webroot' => '/'
 			))
 		);
 
@@ -848,7 +848,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'pages', 'action' => 'admin_add', 'prefix' => 'admin',
 				'admin' => true, 'url' => array('url' => 'admin/pages/add')
 			))->addPaths(array(
-				'base' => '', 'here' => '/admin/pages/add', 'webroot' => '/'
+				'BaseController' => '', 'here' => '/admin/pages/add', 'webroot' => '/'
 			))
 		);
 
@@ -865,7 +865,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'pages', 'action' => 'admin_edit', 'prefix' => 'admin',
 				'admin' => true, 'pass' => array('284'), 'url' => array('url' => 'admin/pages/edit/284')
 			))->addPaths(array(
-				'base' => '', 'here' => '/admin/pages/edit/284', 'webroot' => '/'
+				'BaseController' => '', 'here' => '/admin/pages/edit/284', 'webroot' => '/'
 			))
 		);
 
@@ -881,7 +881,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'posts', 'action' => 'admin_index', 'prefix' => 'admin',
 				'admin' => true, 'pass' => array('284'), 'url' => array('url' => 'admin/posts')
 			))->addPaths(array(
-				'base' => '', 'here' => '/admin/posts', 'webroot' => '/'
+				'BaseController' => '', 'here' => '/admin/posts', 'webroot' => '/'
 			))
 		);
 
@@ -925,7 +925,7 @@ class RouterTest extends CakeTestCase {
 			$request->addParams(array(
 				'plugin' => 'test', 'controller' => 'controller', 'action' => 'index'
 			))->addPaths(array(
-				'base' => '/base', 'here' => '/clients/sage/portal/donations', 'webroot' => '/base/'
+				'BaseController' => '/base', 'here' => '/clients/sage/portal/donations', 'webroot' => '/base/'
 			))
 		);
 
@@ -941,7 +941,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => 'shows', 'controller' => 'shows', 'action' => 'index',
 				'url' => array('url' => 'en/shows/'),
 			))->addPaths(array(
-				'base' => '', 'here' => '/en/shows', 'webroot' => '/'
+				'BaseController' => '', 'here' => '/en/shows', 'webroot' => '/'
 			))
 		);
 
@@ -981,7 +981,7 @@ class RouterTest extends CakeTestCase {
 				'controller' => 'interesting',
 				'url' => array('url' => 'admin/this/interesting/index'),
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/admin/this/interesting/index',
 				'webroot' => '/',
 			))
@@ -1169,7 +1169,7 @@ class RouterTest extends CakeTestCase {
 				'action' => 'view',
 				'controller' => 'posts',
 			))->addPaths(array(
-				'base' => '/',
+				'BaseController' => '/',
 				'here' => '/en/red/posts/view/5',
 				'webroot' => '/',
 			))
@@ -1326,7 +1326,7 @@ class RouterTest extends CakeTestCase {
 				'admin' => true, 'controller' => 'controller', 'action' => 'action',
 				'plugin' => null, 'prefix' => 'admin'
 			))->addPaths(array(
-				'base' => '/',
+				'BaseController' => '/',
 				'here' => '/',
 				'webroot' => '/base/',
 			))
@@ -1346,7 +1346,7 @@ class RouterTest extends CakeTestCase {
 				'pass' => array('6'), 'prefix' => 'admin', 'admin' => true, 'form' => array(),
 				'url' => array('url' => 'admin/shows/show_tickets/edit/6')
 			))->addPaths(array(
-				'base' => '/',
+				'BaseController' => '/',
 				'here' => '/admin/shows/show_tickets/edit/6',
 				'webroot' => '/',
 			))
@@ -1560,7 +1560,7 @@ class RouterTest extends CakeTestCase {
 			$request->addParams(array(
 				'admin' => true, 'controller' => 'controller', 'action' => 'index', 'plugin' => null
 			))->addPaths(array(
-				'base' => '/',
+				'BaseController' => '/',
 				'here' => '/',
 				'webroot' => '/base/',
 			))
@@ -1666,7 +1666,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'images', 'action' => 'index',
 				'prefix' => null, 'admin' => false, 'url' => array('url' => 'images/index')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/images/index',
 				'webroot' => '/',
 			))
@@ -1734,7 +1734,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'images', 'action' => 'index',
 				'prefix' => null, 'protected' => false, 'url' => array('url' => 'images/index')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/images/index',
 				'webroot' => '/',
 			))
@@ -1806,7 +1806,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'images', 'action' => 'index', 'prefix' => 'protected',
 				'protected' => true, 'url' => array('url' => 'protected/images/index')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/protected/images/index',
 				'webroot' => '/',
 			))
@@ -1837,7 +1837,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'images', 'action' => 'index', 'prefix' => 'protected',
 				'protected' => true, 'url' => array('url' => 'protected/images/index')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/protected/images/index',
 				'webroot' => '/',
 			))
@@ -1853,7 +1853,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'images', 'action' => 'index', 'prefix' => 'admin',
 				'admin' => true, 'url' => array('url' => 'admin/images/index')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/admin/images/index',
 				'webroot' => '/',
 			))
@@ -1898,7 +1898,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'controller', 'action' => 'index',
 				'bare' => 0, 'url' => array('url' => 'protected/images/index')
 			))->addPaths(array(
-				'base' => '/base',
+				'BaseController' => '/base',
 				'here' => '/',
 				'webroot' => '/base/',
 			))
@@ -1908,11 +1908,11 @@ class RouterTest extends CakeTestCase {
 		$expected = '/base/my_controller/my_action';
 		$this->assertEquals($expected, $result);
 
-		$result = Router::url(array('controller' => 'my_controller', 'action' => 'my_action', 'base' => false));
+		$result = Router::url(array('controller' => 'my_controller', 'action' => 'my_action', 'BaseController' => false));
 		$expected = '/my_controller/my_action';
 		$this->assertEquals($expected, $result);
 
-		$result = Router::url(array('controller' => 'my_controller', 'action' => 'my_action', 'base' => true));
+		$result = Router::url(array('controller' => 'my_controller', 'action' => 'my_action', 'BaseController' => true));
 		$expected = '/base/my_controller/my_action/base:1';
 		$this->assertEquals($expected, $result);
 	}
@@ -2043,7 +2043,7 @@ class RouterTest extends CakeTestCase {
 			$request->addParams(array(
 				'plugin' => null, 'controller' => 'controller', 'action' => 'index'
 			))->addPaths(array(
-				'base' => '/base',
+				'BaseController' => '/base',
 				'here' => '/',
 				'webroot' => '/base/',
 			))
@@ -2077,7 +2077,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'controller', 'action' => 'index',
 				'bare' => 0
 			))->addPaths(array(
-				'base' => '/base',
+				'BaseController' => '/base',
 				'here' => '/',
 				'webroot' => '/',
 			))
@@ -2119,7 +2119,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'users', 'action' => 'login',
 				'company' => true
 			))->addPaths(array(
-				'base' => '/',
+				'BaseController' => '/',
 				'here' => '/',
 				'webroot' => '/base/',
 			))
@@ -2146,7 +2146,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'posts', 'action' => 'index',
 				'admin' => true, 'prefix' => 'admin'
 			))->addPaths(array(
-				'base' => '/',
+				'BaseController' => '/',
 				'here' => '/',
 				'webroot' => '/',
 			))
@@ -2193,7 +2193,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'images', 'action' => 'index',
 				'url' => array('url' => 'protected/images/index')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/protected/images/index',
 				'webroot' => '/',
 			))
@@ -2239,7 +2239,7 @@ class RouterTest extends CakeTestCase {
 				'plugin' => null, 'controller' => 'test', 'action' => 'index',
 				'url' => array('url' => 'test/test_action')
 			))->addPaths(array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/test/test_action',
 				'webroot' => '/',
 			))
@@ -2329,7 +2329,7 @@ class RouterTest extends CakeTestCase {
  * @return void
  */
 	public function testGetParams() {
-		$paths = array('base' => '/', 'here' => '/products/display/5', 'webroot' => '/webroot');
+		$paths = array('BaseController' => '/', 'here' => '/products/display/5', 'webroot' => '/webroot');
 		$params = array('param1' => '1', 'param2' => '2');
 		Router::setRequestInfo(array($params, $paths));
 
@@ -2630,7 +2630,7 @@ class RouterTest extends CakeTestCase {
 				'url' => array('url' => 'protected/images/index')
 			),
 			array(
-				'base' => '',
+				'BaseController' => '',
 				'here' => '/protected/images/index',
 				'webroot' => '/',
 			)
@@ -2654,7 +2654,7 @@ class RouterTest extends CakeTestCase {
 			'plugin' => null,
 			'controller' => 'posts',
 			'action' => 'index'
-		))->addPaths(array('base' => ''));
+		))->addPaths(array('BaseController' => ''));
 
 		$secondRequest = new CakeRequest('/posts/index');
 		$secondRequest->addParams(array(
@@ -2662,16 +2662,16 @@ class RouterTest extends CakeTestCase {
 			'plugin' => null,
 			'controller' => 'comments',
 			'action' => 'listing'
-		))->addPaths(array('base' => ''));
+		))->addPaths(array('BaseController' => ''));
 
 		Router::setRequestInfo($firstRequest);
 		Router::setRequestInfo($secondRequest);
 
-		$result = Router::url(array('base' => false));
+		$result = Router::url(array('BaseController' => false));
 		$this->assertEquals('/comments/listing', $result, 'with second requests, the last should win.');
 
 		Router::popRequest();
-		$result = Router::url(array('base' => false));
+		$result = Router::url(array('BaseController' => false));
 		$this->assertEquals('/posts', $result, 'with second requests, the last should win.');
 	}
 

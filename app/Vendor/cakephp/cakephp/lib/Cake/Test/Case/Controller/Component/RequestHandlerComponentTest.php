@@ -894,7 +894,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
 
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(), 'named' => array(), 'form' => array(), 'url' => array('url' => 'accounts/')),
-			array('base' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
+			array('BaseController' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
 		));
 
 		$RequestHandler = $this->getMock('RequestHandlerComponent', array('_stop'), array(&$this->Controller->Components));

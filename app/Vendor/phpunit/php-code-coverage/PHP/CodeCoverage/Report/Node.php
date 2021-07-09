@@ -44,7 +44,7 @@
  */
 
 /**
- * Base class for nodes in the code coverage information tree.
+ * BaseController class for nodes in the code coverage information tree.
  *
  * @category   PHP
  * @package    CodeCoverage

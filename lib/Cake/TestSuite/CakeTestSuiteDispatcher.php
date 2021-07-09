@@ -70,7 +70,7 @@ class CakeTestSuiteDispatcher {
 	protected $_baseUrl;
 
 /**
- * Base dir of the request. Used for accessing assets.
+ * BaseController dir of the request. Used for accessing assets.
  *
  * @var string
  */

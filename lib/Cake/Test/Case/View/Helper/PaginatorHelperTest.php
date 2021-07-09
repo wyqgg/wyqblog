@@ -135,7 +135,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(), 'url' => array('url' => 'accounts/')),
-			array('base' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
+			array('BaseController' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
 		));
 		$this->Paginator->options(array('url' => array('param')));
 		$this->Paginator->request['paging'] = array(
@@ -241,7 +241,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(), 'url' => array('url' => 'accounts/')),
-			array('base' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
+			array('BaseController' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
 		));
 		$this->Paginator->options(array('url' => array('param')));
 		$this->Paginator->request['paging'] = array(
@@ -286,7 +286,7 @@ class PaginatorHelperTest extends CakeTestCase {
 	public function testSortLinkWithVirtualField() {
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(), 'form' => array(), 'url' => array('url' => 'accounts/')),
-			array('base' => '', 'here' => '/accounts/', 'webroot' => '/')
+			array('BaseController' => '', 'here' => '/accounts/', 'webroot' => '/')
 		));
 		$this->Paginator->request->params['paging']['Article']['options']['order'] = array('full_name' => 'asc');
 
@@ -335,7 +335,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(),
 				'url' => array('url' => 'accounts/', 'mod_rewrite' => 'true')),
-			array('base' => '/', 'here' => '/accounts/', 'webroot' => '/')
+			array('BaseController' => '/', 'here' => '/accounts/', 'webroot' => '/')
 		));
 		$this->Paginator->options(array('url' => array('param')));
 
@@ -366,7 +366,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(), 'form' => array(), 'url' => array('url' => 'accounts/', 'mod_rewrite' => 'true'), 'bare' => 0),
-			array('base' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
+			array('BaseController' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/')
 		));
 
 		$this->Paginator->request->params['paging']['Article']['options']['order'] = array('Article.title' => 'desc');
@@ -424,7 +424,7 @@ class PaginatorHelperTest extends CakeTestCase {
 				'url' => array('url' => 'accounts/', 'mod_rewrite' => 'true'),
 				'bare' => 0
 			),
-			array('base' => '', 'here' => '/accounts/', 'webroot' => '/')
+			array('BaseController' => '', 'here' => '/accounts/', 'webroot' => '/')
 		));
 
 		$this->Paginator->options(array('model' => 'Articles'));
@@ -603,7 +603,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::reload();
 		Router::setRequestInfo(array(
 			array('pass' => array(), 'named' => array(), 'controller' => 'users', 'plugin' => null, 'action' => 'admin_index', 'prefix' => 'admin', 'admin' => true, 'url' => array('ext' => 'html', 'url' => 'admin/users')),
-			array('base' => '', 'here' => '/admin/users', 'webroot' => '/')
+			array('BaseController' => '', 'here' => '/admin/users', 'webroot' => '/')
 		));
 		Router::parse('/admin/users');
 		$this->Paginator->request->params['paging']['Article']['page'] = 1;
@@ -620,7 +620,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::reload();
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'test', 'action' => 'admin_index', 'pass' => array(), 'prefix' => 'admin', 'admin' => true, 'url' => array('url' => 'admin/test')),
-			array('base' => '', 'here' => '/admin/test', 'webroot' => '/')
+			array('BaseController' => '', 'here' => '/admin/test', 'webroot' => '/')
 		));
 		Router::parse('/');
 		$this->Paginator->options(array('url' => array('param')));
@@ -686,7 +686,7 @@ class PaginatorHelperTest extends CakeTestCase {
 
 		Router::setRequestInfo(array(
 			array('controller' => 'posts', 'action' => 'index', 'form' => array(), 'url' => array(), 'plugin' => null),
-			array('base' => '', 'here' => 'posts/index', 'webroot' => '/')
+			array('BaseController' => '', 'here' => 'posts/index', 'webroot' => '/')
 		));
 
 		$this->Paginator->request->params['paging']['Article']['options']['page'] = 2;
@@ -747,7 +747,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('controller' => 'posts', 'action' => 'index', 'form' => array(), 'url' => array(), 'plugin' => null),
-			array('base' => '', 'here' => 'posts/index', 'webroot' => '/')
+			array('BaseController' => '', 'here' => 'posts/index', 'webroot' => '/')
 		));
 		$this->Paginator->request->params['paging']['Article']['queryScope'] = 'article';
 		$this->Paginator->request->params['paging']['Article']['page'] = 3;
@@ -847,7 +847,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'articles', 'action' => 'index', 'pass' => array('2'), 'named' => array('foo' => 'bar'), 'url' => array('url' => 'articles/index/2/foo:bar')),
-			array('base' => '/', 'here' => '/articles/', 'webroot' => '/')
+			array('BaseController' => '/', 'here' => '/articles/', 'webroot' => '/')
 		));
 		$this->Paginator->request->params['paging'] = array(
 			'Article' => array(
@@ -914,7 +914,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'articles', 'action' => 'index', 'pass' => array('2'), 'named' => array('foo' => 'bar'), 'url' => array('url' => 'articles/index/2/foo:bar')),
-			array('base' => '/', 'here' => '/articles/', 'webroot' => '/')
+			array('BaseController' => '/', 'here' => '/articles/', 'webroot' => '/')
 		));
 		$this->Paginator->request->params['paging'] = array(
 			'Article' => array(
@@ -2705,7 +2705,7 @@ class PaginatorHelperTest extends CakeTestCase {
 				'pass' => array(), 'named' => array(), 'prefix' => null, 'form' => array(),
 				'controller' => 'magazines', 'plugin' => 'my_plugin', 'action' => 'index',
 				'url' => array('ext' => 'html', 'url' => 'my_plugin/magazines')),
-			array('base' => '', 'here' => '/my_plugin/magazines', 'webroot' => '/')
+			array('BaseController' => '', 'here' => '/my_plugin/magazines', 'webroot' => '/')
 		));
 
 		$result = $this->Paginator->link('Page 3', array('page' => 3));
@@ -2753,7 +2753,7 @@ class PaginatorHelperTest extends CakeTestCase {
 		Router::parse('/');
 		Router::setRequestInfo(array(
 			array('plugin' => null, 'controller' => 'accounts', 'action' => 'index', 'pass' => array(), 'url' => array('url' => 'accounts/')),
-			array('base' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/', 'passedArgs' => array())
+			array('BaseController' => '/officespace', 'here' => '/officespace/accounts/', 'webroot' => '/officespace/', 'passedArgs' => array())
 		));
 
 		$this->Paginator->request->params['paging']['Article']['options']['order'] = array('Article.title' => 'asc');

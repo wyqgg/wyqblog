@@ -44,7 +44,7 @@
  */
 
 /**
- * Base class for all test runners.
+ * BaseController class for all test runners.
  *
  * @package    PHPUnit
  * @subpackage Runner

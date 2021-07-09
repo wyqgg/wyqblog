@@ -752,9 +752,9 @@ class Router {
 			return static::$_requests[count(static::$_requests) - 1];
 		}
 		if (!isset(static::$_requests[0])) {
-			return array('base' => null);
+			return array('BaseController' => null);
 		}
-		return array('base' => static::$_requests[0]->base);
+		return array('BaseController' => static::$_requests[0]->base);
 	}
 
 /**
@@ -839,17 +839,17 @@ class Router {
 			extract($full + array('escape' => false, 'full' => false));
 		}
 
-		$path = array('base' => null);
+		$path = array('BaseController' => null);
 		if (!empty(static::$_requests)) {
 			$request = static::$_requests[count(static::$_requests) - 1];
 			$params = $request->params;
-			$path = array('base' => $request->base, 'here' => $request->here);
+			$path = array('BaseController' => $request->base, 'here' => $request->here);
 		}
-		if (empty($path['base'])) {
-			$path['base'] = Configure::read('App.base');
+		if (empty($path['BaseController'])) {
+			$path['BaseController'] = Configure::read('App.base');
 		}
 
-		$base = $path['base'];
+		$base = $path['BaseController'];
 		$extension = $output = $q = $frag = null;
 
 		if (empty($url)) {
@@ -859,9 +859,9 @@ class Router {
 			}
 			return $output;
 		} elseif (is_array($url)) {
-			if (isset($url['base']) && $url['base'] === false) {
+			if (isset($url['BaseController']) && $url['BaseController'] === false) {
 				$base = null;
-				unset($url['base']);
+				unset($url['BaseController']);
 			}
 			if (isset($url['full_base']) && $url['full_base'] === true) {
 				$full = true;
@@ -1197,7 +1197,7 @@ class Router {
 /**
  * Removes the plugin name from the base URL.
  *
- * @param string $base Base URL
+ * @param string $base BaseController URL
  * @param string $plugin Plugin name
  * @return string base URL with plugin name removed if present
  */

@@ -9,7 +9,6 @@
     <script src="/css/layui/layui.js"></script>
     <!--<script src="/css/layui/modules/layer.js"></script>-->
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-
 </head>
 <body style="background-color:#5FB878">
 <div>
@@ -56,7 +55,7 @@
                 </div>
             </div>
 
-            <a type="button" href="/admin/login"  class="layui-btn" style="margin-left: 50px">去登录</a>
+            <a type="button" href="/login/login"  class="layui-btn" style="margin-left: 50px">去登录</a>
             <button type="button" id="submit"  class="layui-btn">注册</button>
         </form>
     </div>

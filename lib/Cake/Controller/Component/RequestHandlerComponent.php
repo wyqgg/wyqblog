@@ -267,7 +267,7 @@ class RequestHandlerComponent extends Component {
 			unset($_POST[$key]);
 		}
 		if (is_array($url)) {
-			$url = Router::url($url + array('base' => false));
+			$url = Router::url($url + array('BaseController' => false));
 		}
 		if (!empty($status)) {
 			$statusCode = $this->response->httpCodes($status);

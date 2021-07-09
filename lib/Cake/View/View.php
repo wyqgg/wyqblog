@@ -843,7 +843,7 @@ class View extends CakeObject {
  */
 	public function __get($name) {
 		switch ($name) {
-			case 'base':
+			case 'BaseController':
 			case 'here':
 			case 'webroot':
 			case 'data':
@@ -888,7 +888,7 @@ class View extends CakeObject {
 		if (isset($this->{$name})) {
 			return true;
 		}
-		$magicGet = array('base', 'here', 'webroot', 'data', 'action', 'params', 'output');
+		$magicGet = array('BaseController', 'here', 'webroot', 'data', 'action', 'params', 'output');
 		if (in_array($name, $magicGet)) {
 			return $this->__get($name) !== null;
 		}

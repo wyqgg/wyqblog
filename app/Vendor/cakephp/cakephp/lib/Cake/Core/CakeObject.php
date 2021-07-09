@@ -92,7 +92,7 @@ class CakeObject {
 		if (is_string($url)) {
 			$request = new CakeRequest($url);
 		} elseif (is_array($url)) {
-			$params = $url + array('pass' => array(), 'named' => array(), 'base' => false);
+			$params = $url + array('pass' => array(), 'named' => array(), 'BaseController' => false);
 			$params = $extra + $params;
 			$request = new CakeRequest(Router::reverse($params));
 		}

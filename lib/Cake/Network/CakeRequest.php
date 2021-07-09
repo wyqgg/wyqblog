@@ -72,7 +72,7 @@ class CakeRequest implements ArrayAccess {
 	public $url;
 
 /**
- * Base URL path.
+ * BaseController URL path.
  *
  * @var string
  */
@@ -297,7 +297,7 @@ class CakeRequest implements ArrayAccess {
  * URL Rewriting is activated (and thus not needed) it swallows
  * the unnecessary part from $base to prevent issue #3318.
  *
- * @return string Base URL
+ * @return string BaseController URL
  */
 	protected function _base() {
 		$dir = $webroot = null;
@@ -733,7 +733,7 @@ class CakeRequest implements ArrayAccess {
  * @return self
  */
 	public function addPaths($paths) {
-		foreach (array('webroot', 'here', 'base') as $element) {
+		foreach (array('webroot', 'here', 'BaseController') as $element) {
 			if (isset($paths[$element])) {
 				$this->{$element} = $paths[$element];
 			}

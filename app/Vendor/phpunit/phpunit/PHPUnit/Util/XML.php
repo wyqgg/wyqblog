@@ -540,7 +540,7 @@ class PHPUnit_Util_XML
         // no tag selected, get them all
         else {
             $tags = array(
-              'a', 'abbr', 'acronym', 'address', 'area', 'b', 'base', 'bdo',
+              'a', 'abbr', 'acronym', 'address', 'area', 'b', 'BaseController', 'bdo',
               'big', 'blockquote', 'body', 'br', 'button', 'caption', 'cite',
               'code', 'col', 'colgroup', 'dd', 'del', 'div', 'dfn', 'dl',
               'dt', 'em', 'fieldset', 'form', 'frame', 'frameset', 'h1', 'h2',

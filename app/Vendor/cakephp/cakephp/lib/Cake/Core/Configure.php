@@ -127,7 +127,7 @@ class Configure {
  */
 	protected static function _appDefaults() {
 		static::write('App', (array)static::read('App') + array(
-			'base' => false,
+			'BaseController' => false,
 			'baseUrl' => false,
 			'dir' => APP_DIR,
 			'webroot' => WEBROOT_DIR,

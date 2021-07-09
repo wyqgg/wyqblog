@@ -44,7 +44,7 @@
  */
 
 /**
- * Base class for printers of TestDox documentation.
+ * BaseController class for printers of TestDox documentation.
  *
  * @package    PHPUnit
  * @subpackage Util_TestDox

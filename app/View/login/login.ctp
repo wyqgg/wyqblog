@@ -43,7 +43,7 @@
                 <!--</div>-->
 
                 <button id="submit" type="button" class="layui-btn" style="margin-left: 50px">登录</button>
-                <a type="button"  href="/admin/regist"   class="layui-btn">注册</a>
+                <a type="button"  href="/login/regist"   class="layui-btn">注册</a>
             </form>
         </div>
     </div>
@@ -57,7 +57,7 @@
                 'password': $('#password').val(),
             };
             $.ajax({
-                    'url': '/admin/doLogin',
+                    'url': '/login/doLogin',
                     'type':'post',
                     'dataType':'json',
                     'data':data,

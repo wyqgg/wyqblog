@@ -75,7 +75,7 @@ class Debugger {
 			'code' => '',
 			'info' => ''
 		),
-		'base' => array(
+		'BaseController' => array(
 			'traceLine' => '{:reference} - {:path}, line {:line}',
 			'trace' => "Trace:\n{:trace}\n",
 			'context' => "Context:\n{:context}\n",
@@ -333,7 +333,7 @@ class Debugger {
 				if (isset($self->_templates[$options['format']]['traceLine'])) {
 					$tpl = $self->_templates[$options['format']]['traceLine'];
 				} else {
-					$tpl = $self->_templates['base']['traceLine'];
+					$tpl = $self->_templates['BaseController']['traceLine'];
 				}
 				$trace['path'] = static::trimPath($trace['file']);
 				$trace['reference'] = $reference;
@@ -766,7 +766,7 @@ class Debugger {
 
 		$data['trace'] = $trace;
 		$data['id'] = 'cakeErr' . uniqid();
-		$tpl = array_merge($this->_templates['base'], $this->_templates[$this->_outputFormat]);
+		$tpl = array_merge($this->_templates['BaseController'], $this->_templates[$this->_outputFormat]);
 
 		if (isset($tpl['links'])) {
 			foreach ($tpl['links'] as $key => $val) {

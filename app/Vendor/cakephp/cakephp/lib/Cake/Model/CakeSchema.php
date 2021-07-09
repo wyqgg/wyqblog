@@ -22,7 +22,7 @@ App::uses('ConnectionManager', 'Model');
 App::uses('File', 'Utility');
 
 /**
- * Base Class for Schema management.
+ * BaseController Class for Schema management.
  *
  * @package       Cake.Model
  */
@@ -542,7 +542,7 @@ class CakeSchema extends CakeObject {
  * where one value is strval('') ant other is strval(null) - in string comparing
  * methods this results as EQUAL, while it is not.
  *
- * @param array $array1 Base array.
+ * @param array $array1 BaseController array.
  * @param array $array2 Corresponding array checked for equality.
  * @return array Difference as array with array(keys => values) from input array
  *     where match was not found.

@@ -751,7 +751,7 @@ class AuthComponent extends Component {
 			$redir = '/';
 		}
 		if (is_array($redir)) {
-			return Router::url($redir + array('base' => false));
+			return Router::url($redir + array('BaseController' => false));
 		}
 		return $redir;
 	}

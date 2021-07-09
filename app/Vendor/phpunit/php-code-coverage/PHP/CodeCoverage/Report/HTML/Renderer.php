@@ -44,7 +44,7 @@
  */
 
 /**
- * Base class for PHP_CodeCoverage_Report_Node renderers.
+ * BaseController class for PHP_CodeCoverage_Report_Node renderers.
  *
  * @category   PHP
  * @package    CodeCoverage

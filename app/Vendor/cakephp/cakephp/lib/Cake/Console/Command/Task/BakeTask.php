@@ -1,6 +1,6 @@
 <?php
 /**
- * Base class for Bake Tasks.
+ * BaseController class for Bake Tasks.
  *
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -18,7 +18,7 @@
 App::uses('AppShell', 'Console/Command');
 
 /**
- * Base class for Bake Tasks.
+ * BaseController class for Bake Tasks.
  *
  * @package       Cake.Console.Command.Task
  */
@@ -72,7 +72,7 @@ class BakeTask extends AppShell {
 	}
 
 /**
- * Base execute method parses some parameters and sets some properties on the bake tasks.
+ * BaseController execute method parses some parameters and sets some properties on the bake tasks.
  * call when overriding execute()
  *
  * @return void

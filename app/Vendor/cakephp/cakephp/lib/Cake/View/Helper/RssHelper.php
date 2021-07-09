@@ -38,7 +38,7 @@ class RssHelper extends AppHelper {
 	public $helpers = array('Time');
 
 /**
- * Base URL
+ * BaseController URL
  *
  * @var string
  */
