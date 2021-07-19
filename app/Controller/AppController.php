@@ -33,24 +33,35 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller
 {
+    public $components = array('Session', 'email','PublicFunction');
     public $uses = array ('Admin','Role');
     public function beforeFilter()
     {
         parent::beforeFilter();
         //获取当前访问的地址 如：/login/login : 截取之后得到:$url = [0=>'',1=>'login',2=>'login']
+        //这里是访问地址
+        $url1 = trim($_SERVER['REQUEST_URI']);
         $url = explode('/',trim($_SERVER['REQUEST_URI']));
         //获取控制器名。这里我是将不需要权限检测的功能放在一个控制器里。
         $module = $url[1];
         //login控制器不需要进行权限检测
         $NoAuth = array('login');
+
         if (!in_array($module,$NoAuth)){
             $admin_info = CakeSession::read('admin_info');
             if (!$admin_info) {
-                $this->redirect('login/login');
+                $this->redirect('/login/login');
             }
+            //获取用户菜单
             $this->getMenu();
+            //权限检测
+            $auth = $this->authCheck();
+            //鉴权失败,超级管理员拥有全部权限
+            if (!in_array($url1,$auth) && $admin_info['role_id'] != 1){
+                $res = array('code'=>400,'msg'=>'您没有权限操作！');
+                exit(json_encode($res));
+            }
         }
-
     }
 
 
@@ -63,20 +74,37 @@ class AppController extends Controller
     {
         //从session中获取当前登录用户的角色
         $admin_info = CakeSession::read('admin_info');
+
         $role_id = $admin_info['role_id'];
         //获取当前用户的权限
         $auth = $this->Role->find_auth($role_id);
         //获取用户的全部菜单
-        $menu = $this->Role->get_menu($auth);
+        if ($role_id == 1){
+            $menu = $this->Role->get_all_menu($auth);
+        }else{
+            $menu = $this->Role->get_menu($auth);
+        }
         //这里因为菜单有顶级菜单和次级菜单，故这里可以做处理，这样可以返回父子级树状结构
         $menu1 =  $this->get_tree_list($menu);
-        $this->set('menu', $menu1);
+        $this->set(array('menu'=> $menu1,'admin_info'=>$admin_info));
     }
 
     /*
      * 权限检测防止越权操作
      */
+    public function authCheck(){
+        $admin_info = CakeSession::read('admin_info');
+        $role_id = $admin_info['role_id'];
+        //获取当前用户的权限
+        $auth = $this->Role->find_auth($role_id);
+        //获取权限的信息
+        $auth_info = $this->Role->get_auth($auth);
+        return $auth_info;
+    }
 
+    /*
+     * 获取父子级树状结构
+     */
     public function get_tree_list($list){
         //将每条数据中的id值作为其下标
         $temp = array();
@@ -91,4 +119,6 @@ class AppController extends Controller
         }
         return isset($temp[0]['son']) ? $temp[0]['son'] : array();
     }
+
+
 }

@@ -1,4 +1,13 @@
 
+
+<div style="margin-bottom: 5px">
+    <span class="layui-breadcrumb">
+          <a href="">首页</a>
+          <a><cite>用户管理</cite></a>
+    </span>
+</div>
+
+
 <button type="button" onclick="add()" class="layui-btn" >新增用户</button>
 <table class="layui-table">
         <colgroup>

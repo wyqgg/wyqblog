@@ -8,20 +8,64 @@
 
 class Admin extends AppModel
 {
-    public $validate  = array(
-        'username' => array(
-            'rule'  => 'alphaNumeric',
-            'required' => true,
-            'allowEmpty' => false,
-            'message' => 'username error！'
-        ),
-        'phone' => array(
-            'rule' => array('phone',"/^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/"),
-            'message' => 'phone error!'
-        ),
-        'email' => array(
-            'rule' => 'email',
-            'message' => 'email error!'
-        )
-    );
+    /*
+     * 通过角色id获取管理员用户名的信息
+     */
+    public function findAdminName($id){
+        $this->setSource('admins');
+        $res =$this->find('all',array(
+            'conditions' => array('role_id' => $id),
+            'fields' => 'Admin.username',
+        ));
+        //简化数组
+        $res1 = array();
+        foreach ($res as $v){
+           $res1[] = $v['Admin']['username'];
+        }
+        //是数组且数组长度大于二时将数组分解成字符串
+        if (is_array($res1) && sizeof($res1)>=2){
+            $res2 = implode(',',$res1);
+        }else{
+            $res2 = $res1[0];
+        }
+        //返回管理员用户名的信息
+        return $res2;
+    }
+
+    /*
+     * 获取全部管理员信息
+     */
+    public function getAdmin(){
+        $this->setSource('admins');
+        $data =$this->find('all',array(
+            'fields' => array('id','username','role_id','email','as.role_name','as.id'),
+            'joins' => array(
+                array(
+                    'table' => 'role',
+                    'alias'=> 'as',
+                    'type' => 'left',
+                    'conditions'=> array('Admin.role_id = as.id')
+                )
+            )
+        ));
+        return $data;
+    }
+
+    /*
+     * 新增、修改管理员
+     */
+    public function dellAdmin($post){
+        $this->setSource('admins');
+        $data = $this->save($post);
+        return $data;
+    }
+
+    /*
+     * 删除管理员操作
+     */
+    public function delAdmin($id){
+        $this->setSource('admins');
+        $data = $this->delete($id);
+        return $data;
+    }
 }

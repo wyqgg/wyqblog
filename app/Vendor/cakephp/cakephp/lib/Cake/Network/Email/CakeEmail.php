@@ -346,7 +346,7 @@ class CakeEmail {
 /**
  * Constructor
  *
- * @param array|string $config Array of configs, or string to load configs from email.php
+ * @param array|string $config Array of configs, or string to load configs from EmailComponent.php
  */
 	public function __construct($config = null) {
 		$this->_appCharset = Configure::read('App.encoding');
@@ -1136,7 +1136,7 @@ class CakeEmail {
  *
  * ### Usage
  *
- * Load configuration from `app/Config/email.php`:
+ * Load configuration from `app/Config/EmailComponent.php`:
  *
  * `$email->config('default');`
  *
@@ -1144,7 +1144,7 @@ class CakeEmail {
  *
  * `$email->config(array('to' => 'bill@example.com'));`
  *
- * @param string|array $config String with configuration name (from email.php), array with config or null to return current config
+ * @param string|array $config String with configuration name (from EmailComponent.php), array with config or null to return current config
  * @return string|array|self
  */
 	public function config($config = null) {
@@ -1248,7 +1248,7 @@ class CakeEmail {
 		if (is_string($config)) {
 			if (!$this->_configInstance) {
 				if (!class_exists($this->_configClass) && !config('email')) {
-					throw new ConfigureException(__d('cake_dev', '%s not found.', CONFIG . 'email.php'));
+					throw new ConfigureException(__d('cake_dev', '%s not found.', CONFIG . 'EmailComponent.php'));
 				}
 				$this->_configInstance = new $this->_configClass();
 			}
