@@ -35,16 +35,17 @@
                     </div>
                 </div>
 
-                <!--<div class="layui-form-item">-->
-                    <!--<label class="layui-form-label">验证码</label>-->
-                    <!--<div class="layui-input-block">-->
-                        <!--<input type="text" name="code"  placeholder="请输入验证码" style="width: 200px;"  class="layui-input">-->
-                    <!--</div>-->
-                <!--</div>-->
+                <div class="layui-form-item">
+                    <label class="layui-form-label">验证码</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="code"  placeholder="请输入验证码" style="width: 200px;"  class="layui-input">
+                    </div>
+                </div>
 
-                <button id="submit" type="button" class="layui-btn" style="margin-left: 50px">登录</button>
-                <a type="button"  href="/login/regist"   class="layui-btn">注册</a>
+                <button id="submit" type="button" class="layui-btn" style="margin-left: 80px;margin-top: 20px">登录</button>
+                <a type="button"  href="/login/regist" style="margin-left: 250px;margin-top: 20px"  class="layui-btn">注册</a>
             </form>
+            <a href="/login/forget" style="margin-top: 20px;">忘记密码？</a>
         </div>
     </div>
 </body>
@@ -62,6 +63,7 @@
                     'dataType':'json',
                     'data':data,
                     'success':function (msg) {
+                        console.log(msg)
                         if (msg.code == 200){
                             layui.use('layer', function() {
                                 var layer = layui.layer;

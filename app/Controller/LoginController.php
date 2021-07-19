@@ -10,6 +10,8 @@ App::uses('CakeSession', 'Model/Datasource');
 
 class LoginController extends AppController
 {
+    public $components = array('Session','email','publicFunction');
+    public $uses = array('Admin');
     public $helpers =array('Html', 'Form');
     /*
      * 渲染用户登录界面
@@ -26,7 +28,9 @@ class LoginController extends AppController
     {
         //接受参数
         $post = $_POST;
-        $data = $this->Login->find_admin($post['username']);
+        $login = ClassRegistry::init('Login');
+        $data = $login->find_admin($post['username']);
+
         if ($data) {
             if ($this->encrypt($post['password']) == $data['Login']['password']) {
                 //将登录用户信息存在session中
@@ -69,9 +73,9 @@ class LoginController extends AppController
             exit(json_encode($msg));
         }
         $post['password'] = $this->encrypt($post['password']);
-        $this->Admin->set($post);
-        if ($this->Admin->validates()) {
-            $data = $this->Admin->save($post);
+        $this->Login->set($post);
+        if ($this->Login->validates()) {
+            $data = $this->Login->save($post);
             if ($data) {
                 $msg = array('code' => 200, 'data' => $data);
             } else {
@@ -84,10 +88,77 @@ class LoginController extends AppController
         exit(json_encode($msg));
     }
 
+    /*
+     * 密码加密
+     */
     public function encrypt($data)
     {
         $salt = "123123asdasdasd";
         $psw = md5($salt . md5($data));
         return $psw;
     }
+
+    /*
+     * 退出登录
+     */
+    public function logout(){
+        $res = CakeSession::delete('admin_info');
+        if ($res){
+            exit(json_encode($res));
+        }
+    }
+
+    /*
+     * 展示忘记密码页面
+     */
+    public function forget(){
+        $this->layout = false;
+    }
+
+    /*
+     * 点击忘记密码生成验证码
+     */
+    public function findPsw(){
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $login = ClassRegistry::init('Login');
+        $data = $login->find_admin($username);
+        if ($data && $data['Login']['email'] == $email){
+            $code = rand(1000,9999);
+            //存储cookie保存过期时间为60秒之后。
+            $name = 'emailCode'.$username;
+            setcookie($name,$code,time()+60);
+            $content ="<h1>您的验证码为：".$code."</h1>";
+            $res = $this->email->sendmail($email,$content);
+            if ($res == 1){
+                exit(json_encode(200));
+            }else{
+                exit(json_encode(400));
+            }
+        }
+        exit(json_encode(401));
+    }
+
+    /*
+     * 验证验证码与邮箱
+     */
+    public function submitPsw(){
+        $post = $_POST;
+        $name = 'emailCode'.$post['username'];
+        $code = $_COOKIE[$name];
+        $login = ClassRegistry::init('Login');
+        $data = $login->find_admin($post['username']);
+        if ($data['Login']['email'] == $post['email'] && $data['Login']['username'] == $post['username'] && $code = $post['code']){
+            $password = substr($post['email'],'0','6');
+            $password = $this->publicFunction->encrypt($password);
+            $data['Login']['password'] = $password;
+            $admin = ClassRegistry::init('Admin');
+            $data = $admin->dellAdmin($data['Login']);
+            exit(json_encode(200));
+        }else{
+            exit(json_encode(400));
+        }
+    }
+
+
 }
