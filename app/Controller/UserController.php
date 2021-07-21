@@ -2,21 +2,28 @@
 /**
  * Created by PhpStorm.
  * User: wyq
- * Date: 2021/7/7
+ * Date: 2021/7/19
  * Time: 16:32
  */
 
 class UserController extends AppController
 {
+    public $components = array('Session','publicFunction');
     public $helpers =array('Html', 'Form');
+
     /*
      * 文章列表
      * 获取文章全部信息
      * 渲染页面
      */
     public function index(){
-        $params = $this->User->find('all');
-        $this->set('params',$params);
+
+        $page = $_GET['page'] ? $_GET['page'] : 1;
+        $limit = 2;
+        $count = $this->User->count();
+        $pageCount = ceil($count/$limit);
+        $params = $this->User->findUser($page,$limit);
+        $this->set(array('params'=>$params,'page'=>$page,'pageCount'=>$pageCount));
     }
     /*
      * 新增、修改文章
@@ -25,7 +32,12 @@ class UserController extends AppController
     public function dell(){
         $params = $_POST;
         //当id有值时才是修改操作
-        $params = $this->User->save($params);
+        $res = $this->User->save($params);
+        if ($res){
+            $this->publicFunction->success($res);
+        }else{
+            $this->publicFunction->fail();
+        }
     }
 
 }
