@@ -8,6 +8,7 @@
 
 class Admin extends AppModel
 {
+
     /*
      * 通过角色id获取管理员用户名的信息
      */
@@ -67,5 +68,17 @@ class Admin extends AppModel
         $this->setSource('admins');
         $data = $this->delete($id);
         return $data;
+    }
+
+    /*
+     * 通过用户id查看用户的密码
+     */
+    public function findPassword($id){
+        $this->setSource('admins');
+        $data = $this->find('first',array(
+            'conditions' => array('id'=>$id),
+            'fields'  => 'password',
+        ));
+        return $data['Admin']['password'];
     }
 }

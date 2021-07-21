@@ -19,7 +19,7 @@ class UserController extends AppController
     public function index(){
 
         $page = $_GET['page'] ? $_GET['page'] : 1;
-        $limit = 2;
+        $limit = 10;
         $count = $this->User->count();
         $pageCount = ceil($count/$limit);
         $params = $this->User->findUser($page,$limit);

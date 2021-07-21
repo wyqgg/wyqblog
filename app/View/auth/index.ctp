@@ -28,10 +28,8 @@
             <div class="layui-inline">
                 <select id="auth" lay-filter="auth" style="width: 290px;">
                     <option value="0">请选择菜单(默认顶级菜单)</option>
-                    <?php foreach($params as $v): ?>
-                        <?php if($v['Auth']['pid'] == 0): ?>
-                            <option value="<?= $v['Auth']['id'] ?>"><?= $v['Auth']['auth_name']?></option>
-                        <?php endif; ?>
+                    <?php foreach($rootMenu as $v): ?>
+                        <option value="<?= $v['Auth']['id'] ?>"><?= $v['Auth']['auth_name']?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -67,6 +65,27 @@
             <?php endforeach; ?>
         </tbody>
         </table>
+
+        <?php if($pageCount > 1): ?>
+            <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li <?php if($page == 1 || !$page): ?> class="disabled" <?php endif; ?> >
+                <a <?php if($page == 1 || !$page): ?>  onclick="return false" <?php endif; ?> href="/auth/index?page=<?= $page-1?>"  aria-label="Previous">
+                <span aria-hidden="true"  >&laquo;</span>
+                </a>
+                </li>
+                <?php for($i=0;$i<$pageCount;$i++): ?>
+                <li <?php if($page == $i+1): ?> class="active" <?php endif; ?>><a href="/auth/index?page=<?= $i+1 ?>"><?=$i+1?></a></li>
+                <?php endfor; ?>
+                <li <?php if($page == $pageCount): ?> class="disabled" <?php endif; ?> >
+                <a <?php if($page == $pageCount): ?> onclick="return false" <?php endif; ?>  href="/auth/index?page=<?= $page+1?>" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+                </li>
+            </ul>
+        </nav>
+        <?php endif; ?>
+
         <div class="modal fade" id="myModal"  data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document" >
                 <div class="modal-content" >
@@ -113,10 +132,8 @@
                                 <div class="layui-input-block">
                                     <select id="auth1" lay-filter="auth1" >
                                         <option value="0">请选择菜单(默认顶级菜单)</option>
-                                        <?php foreach($params as $v): ?>
-                                        <?php if($v['Auth']['pid'] == 0): ?>
-                                        <option value="<?= $v['Auth']['id'] ?>"><?= $v['Auth']['auth_name']?></option>
-                                        <?php endif; ?>
+                                        <?php foreach($rootMenu as $v): ?>
+                                            <option value="<?= $v['Auth']['id'] ?>"><?= $v['Auth']['auth_name']?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
