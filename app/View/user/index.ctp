@@ -42,6 +42,8 @@
         <?php endforeach; ?>
     </table>
 
+    <?php if($pageCount > 1): ?>
+
         <nav aria-label="Page navigation">
             <ul class="pagination">
                 <li <?php if($page == 1 || !$page): ?> class="disabled" <?php endif; ?> >
@@ -59,6 +61,7 @@
                 </li>
             </ul>
         </nav>
+    <?php endif; ?>
 
 <div class="modal fade" id="myModal"  data-backdrop="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-lg" role="document" >

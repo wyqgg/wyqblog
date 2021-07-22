@@ -13,8 +13,13 @@ class AuthController extends AppController
     */
     public function index(){
         //获取数据
-        $data = $this->Auth->getAuth();
-        $this->set('params',$data);
+        $page = $_GET['page'] ? $_GET['page'] : 1;
+        $limit = 10;
+        $count = $this->Auth->count();
+        $pageCount = ceil($count/$limit);
+        $params = $this->Auth->getAuth($page,$limit);
+        $rootMenu = $this->Auth->getAuth('','',array('pid'=>0));
+        $this->set(array('params'=>$params,'page'=>$page,'pageCount'=>$pageCount,'rootMenu'=>$rootMenu));
     }
 
     /*
