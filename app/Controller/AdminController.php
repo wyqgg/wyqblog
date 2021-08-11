@@ -93,8 +93,10 @@ class AdminController extends AppController{
         $name = implode('.',$name);
         $name = "img/".$name;
         $res =  move_uploaded_file($post['img']['tmp_name'],$name);
-        $post['image'] = $name;
-        if ($res){
+        if ($post['img']){
+            $post['image'] = $name;
+        }
+        if ($post){
             $data = $this->Admin->dellAdmin($post);
             if ($data){
                 $login = ClassRegistry::init('Login');

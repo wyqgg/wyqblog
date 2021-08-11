@@ -45,7 +45,7 @@ class AppController extends Controller
         //获取控制器名。这里我是将不需要权限检测的功能放在一个控制器里。
         $module = $url[1];
         //login控制器不需要进行权限检测
-        $NoAuth = array('login');
+        $NoAuth = array('login','api');
 
         if (!in_array($module,$NoAuth)){
             $admin_info = CakeSession::read('admin_info');
