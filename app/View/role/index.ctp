@@ -138,7 +138,6 @@
                         window.location.reload();
                     },800)
                 }
-
             });
         })
 

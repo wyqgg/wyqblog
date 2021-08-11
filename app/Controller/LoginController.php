@@ -5,7 +5,7 @@
  * Date: 2021/7/8
  * Time: 22:13
  */
-
+require_once('../webroot/clicaptcha/clicaptcha.class.php');
 App::uses('CakeSession', 'Model/Datasource');
 
 class LoginController extends AppController
@@ -30,6 +30,13 @@ class LoginController extends AppController
         $post = $_POST;
         $login = ClassRegistry::init('Login');
         $data = $login->find_admin($post['username']);
+
+//        $clicaptcha = new clicaptcha();
+//        $s = $clicaptcha->check($_POST['clicaptcha-submit-info']);
+//        if ($s == 0){
+//            $res = array('code' => 400, 'msg' => 'captcha error!');
+//            exit(json_encode($res));
+//        }
 
         if ($data) {
             if ($this->encrypt($post['password']) == $data['Login']['password']) {

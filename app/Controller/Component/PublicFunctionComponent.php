@@ -7,6 +7,7 @@
  */
 
 App::uses('Component', 'Controller');
+
 class PublicFunctionComponent extends Component
 {
 
@@ -26,9 +27,11 @@ class PublicFunctionComponent extends Component
      * @params string $msg 响应描述
      * @params string $data 响应数据
      */
-    function response($code = 200 , $msg="success" , $data=array()){
-        $res = array('code'=>$code,'msg'=>$msg,'data'=>$data);
-        echo json_encode($res);die;
+    function response($code = 200, $msg = "success", $data = array())
+    {
+        $res = array('code' => $code, 'msg' => $msg, 'data' => $data);
+        echo json_encode($res);
+        die;
     }
 
     /*
@@ -36,8 +39,9 @@ class PublicFunctionComponent extends Component
      * @params string $msg 响应描述
      * @params string $data 响应数据
      */
-    function success($data=array(),$msg="success",$code = 200){
-        $this->response($code,$msg,$data);
+    function success($data = array(), $msg = "success", $code = 200)
+    {
+        $this->response($code, $msg, $data);
     }
 
     /*
@@ -45,7 +49,8 @@ class PublicFunctionComponent extends Component
      * @params string $msg 响应描述
      * @params string $data 响应数据
      */
-    function fail($code = 500 ,$msg="fail"){
-        $this->response($code,$msg);
+    function fail($code = 500, $msg = "fail")
+    {
+        $this->response($code, $msg);
     }
 }

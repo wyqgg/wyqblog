@@ -78,7 +78,7 @@
                 'nickname': $('#nickname').val(),
             };
             $.ajax({
-                    'url': '/admin/doRegist',
+                    'url': '/login/doRegist',
                     'type':'post',
                     'dataType':'json',
                     'data':data,
