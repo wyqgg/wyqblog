@@ -113,14 +113,14 @@
 
         $('#ajax_submit').click(function () {
             sta = 0;
-            if ($('#status').is(':checked')){
+            if ($('#status').is(':checked')) {
                 var sta = 1;
             }
             var data = {
                 'id': $('#id').val(),
                 'name': $('#name').val(),
                 'url': $('#url').val(),
-                'status' : sta,
+                'status': sta,
             }
             $.ajax({
                 url: '/link/add',
@@ -177,7 +177,7 @@
                 }
                 setTimeout(function () {
                     window.location.reload();
-                },800)
+                }, 800)
             }
         });
     };
